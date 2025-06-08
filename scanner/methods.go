@@ -38,7 +38,7 @@ func contains(s,substr string) bool{
 }
 
 func main(){
-	flag.StringVar(&url,"default","example:- https://example.com "
+	flag.StringVar(&url,"url","default","example:- -url https://example.com "
 )
 	flag.Parse()
 	if url == ""{
