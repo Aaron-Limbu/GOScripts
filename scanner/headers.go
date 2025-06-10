@@ -1,4 +1,4 @@
-package main
+package scanner
 
 import (
 	"fmt"
@@ -7,6 +7,7 @@ import (
 	"io"
 	"crypto/tls"
 	"time"
+	"strings"
 )
 
 var url string
@@ -68,11 +69,4 @@ func analyzeTLS(url string){
 	state := conn.ConnectionState()
 	fmt.Printf("[i] TLS Version: %s\n".state.Version)
 	fmt.Printf("[i] Cipher Suite: 0x%x\n".state.CipherSuite)
-}
-
-func main(){
-	flag.StringVar(&url,"url","default","example: -url https://example.com")
-	flag.Parse()
-	analyzeHeaders(url)
-	analyzeTLS(url)
 }

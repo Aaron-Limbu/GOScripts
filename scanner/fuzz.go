@@ -1,4 +1,4 @@
-package main
+package scanner 
 
 import (
 	"fmt"
@@ -36,12 +36,3 @@ func fuzzPath(target, wpath string){
 	}
 }
 
-func main(){
-	flag.StringVar(&url,"url","default","example: -url https://example.com")
-	flag.StringVar(&path,"path","default")
-	flag.Parse()
-	if url == ""{
-		fmt.Println("[i] Enter url ")
-	}
-	fuzzPath(url, path)
-}

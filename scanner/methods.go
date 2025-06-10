@@ -1,4 +1,4 @@
-package main 
+package scanner 
 
 import (
 	"fmt"
@@ -37,13 +37,3 @@ func contains(s,substr string) bool{
 	return len(s)>0 && strings.Contains(s, substr)
 }
 
-func main(){
-	flag.StringVar(&url,"url","default","example:- -url https://example.com "
-)
-	flag.Parse()
-	if url == ""{
-		fmt.Println("[i] please enter url")
-		return 
-	}
-	checkHTTPSmethods(url)
-}
