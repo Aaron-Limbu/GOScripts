@@ -2,7 +2,6 @@ package main
 import ("fmt"
 	"net/http"
 	"flag"
-	"io"
 	"toolkit/scanner"
 	"toolkit/utils"
 	"toolkit/reports"
@@ -16,8 +15,6 @@ func checkStatus(url string) bool{
 		return false
 	}
 	defer resp.Body.Close()
-	body, _ := io.ReadAll(resp.Body)
-	fmt.Println(string(body))
 	return true
 }
 
@@ -42,7 +39,7 @@ func main(){
 		scanner.AnalyzeHeaders(url)
 		scanner.AnalyzeTLS(url)
 
-		err := reports.SaveReport(output)
+		err := reports.SaveReports(output)
 		if err != nil{
 			fmt.Println("[-] Failed to save report: ",err)
 		}else{

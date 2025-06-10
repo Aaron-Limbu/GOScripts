@@ -3,15 +3,11 @@ package scanner
 import (
 	"fmt"
 	"net/http"
-	"flag"
-	"io"
 	"crypto/tls"
 	"time"
-	"strings"
 	"toolkit/reports"
 )
 
-var url string
 
 func AnalyzeHeaders(url string){
 	fmt.Println("[+] Analyzing HTTP headers for ",url)
@@ -22,7 +18,7 @@ func AnalyzeHeaders(url string){
 		"X-XSS-Protection":"Enables XSS filter",
 		"X-Content-Type-Options":"Prevents MIME type sniffing",
 		"Referrer-Policy":"Controls referrer information",
-		"Permission-Policy":"Restricts browser features"
+		"Permission-Policy":"Restricts browser features",
 	}
 	resp, err := http.Get(url)
 	if err != nil{

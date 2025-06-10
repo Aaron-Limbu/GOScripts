@@ -4,15 +4,10 @@ import (
 	"fmt"
 	"os"
 	"net/http"
-	"flag"
 	"strings"
 	"bufio"
 )
 
-var (
-	url string 
-	path string 
-)
 
 func fuzzPath(target, wpath string){
 	file, err := os.Open(wpath)
@@ -23,7 +18,7 @@ func fuzzPath(target, wpath string){
 	defer file.Close()
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan(){
-		path := scanner.Text()
+		//path := scanner.Text()
 		fullUrl := strings.TrimRight(target,"/") + "/" + wpath
 		resp, err := http.Get(fullUrl)
 		if err != nil {

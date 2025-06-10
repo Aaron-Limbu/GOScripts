@@ -3,20 +3,19 @@ package scanner
 import (
 	"fmt"
 	"net/http"
-	"flag"
+	"strings"
 )
 
-var url string 
 
 func checkHTTPSmethods(url string){
 	fmt.Println("[+] Checking for HTTP methods")
-	req, err := http.NewRequest("OPTIONS",url,nil)
+	req, err := http.NewRequest("GET",url,nil)
 	if err != nil {
 		fmt.Println("[-] Request Error: ",err)
 		return 
 	}
 	client := &http.Client{}
-	resp, err := client.Do{req}
+	resp, err := client.Do(req)
 	if err != nil{
 		fmt.Println("[-] Error: ",err)
 		return 

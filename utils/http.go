@@ -1,13 +1,13 @@
-package main
+package utils
 
 import (
 	"fmt"
-	"net/http"
 	"strings"
+	"net/url"
 )
 
 func CleanURL(raw string) string{
-	if !strings.HasPrefix(raw,"http://") && strings.HasPrefix(raw,"https://"){
+	if !strings.HasPrefix(raw,"http://") && !strings.HasPrefix(raw,"https://"){
 		raw = "http://" + raw
 	}
 	return raw

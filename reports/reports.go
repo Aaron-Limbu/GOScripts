@@ -1,4 +1,4 @@
-package main
+package reports
 
 import (
 	"fmt"
@@ -20,7 +20,7 @@ func AddResult(module, target string, details map[string]string, status string){
 		Module: module,
 		Target: target,
 		Details: details,
-		Status: status
+		Status: status,
 	}
 	Results = append(Results, result)
 }
@@ -28,7 +28,7 @@ func AddResult(module, target string, details map[string]string, status string){
 func PrintResults(){
 	for _, res := range Results{
 		fmt.Printf("\n[%s] %s - $s\n",res.Status,res.Module,res.Target)
-		for k, v := range res.Results{
+		for k, v := range res.Details{
 			fmt.Printf(" - %s: %s\n",k,v)
 		}
 	}
