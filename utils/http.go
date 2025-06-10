@@ -13,7 +13,7 @@ func CleanURL(raw string) string{
 	return raw
 }
 
-func getDomain(raw string) string{
+func GetDomain(raw string) string{
 	u, err := url.Parse(raw)
 	if err != nil {
 		fmt.Println("[-] Invalid URL: ",err)
